@@ -13,6 +13,9 @@ LDFLAGS=-ldflags "-X main.version=$(VERSION) -X main.commit=$(shell git rev-pars
 help: ## Display this help screen
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
+setup-template: ## Run the template setup script to customize for your project
+	@./scripts/setup-template.sh
+
 build: ## Build the application
 	$(GO) build $(GOFLAGS) $(LDFLAGS) -o bin/$(BINARY_NAME) .
 

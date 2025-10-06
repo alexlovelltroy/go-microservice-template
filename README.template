@@ -1,0 +1,142 @@
+<!--
+SPDX-FileCopyrightText: {{YEAR}} {{COPYRIGHT_HOLDER}}
+
+SPDX-License-Identifier: MIT
+-->
+
+# {{PROJECT_NAME}}
+
+[![Build](https://github.com/{{REPO_OWNER}}/{{REPO_NAME}}/actions/workflows/build.yaml/badge.svg)](https://github.com/{{REPO_OWNER}}/{{REPO_NAME}}/actions/workflows/build.yaml)
+[![Test](https://github.com/{{REPO_OWNER}}/{{REPO_NAME}}/actions/workflows/test.yaml/badge.svg)](https://github.com/{{REPO_OWNER}}/{{REPO_NAME}}/actions/workflows/test.yaml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/{{REPO_OWNER}}/{{REPO_NAME}})](https://goreportcard.com/report/github.com/{{REPO_OWNER}}/{{REPO_NAME}})
+[![Go Reference](https://pkg.go.dev/badge/github.com/{{REPO_OWNER}}/{{REPO_NAME}}.svg)](https://pkg.go.dev/github.com/{{REPO_OWNER}}/{{REPO_NAME}})
+[![GoDoc](https://godoc.org/github.com/{{REPO_OWNER}}/{{REPO_NAME}}?status.svg)](https://godoc.org/github.com/{{REPO_OWNER}}/{{REPO_NAME}})
+[![License](https://img.shields.io/github/license/{{REPO_OWNER}}/{{REPO_NAME}})](https://github.com/{{REPO_OWNER}}/{{REPO_NAME}}/blob/main/LICENSE)
+[![REUSE status](https://api.reuse.software/badge/github.com/{{REPO_OWNER}}/{{REPO_NAME}})](https://api.reuse.software/info/github.com/{{REPO_OWNER}}/{{REPO_NAME}})
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/{{REPO_OWNER}}/{{REPO_NAME}}/badge)](https://securityscorecards.dev/viewer/?uri=github.com/{{REPO_OWNER}}/{{REPO_NAME}})
+[![CodeQL](https://github.com/{{REPO_OWNER}}/{{REPO_NAME}}/actions/workflows/codeql.yaml/badge.svg)](https://github.com/{{REPO_OWNER}}/{{REPO_NAME}}/actions/workflows/codeql.yaml)
+
+{{PROJECT_DESCRIPTION}}
+
+> **Note:** This project was created from the [OpenCHAMI Go Microservice Template](https://github.com/OpenCHAMI/go-microservice-template).
+> See [TEMPLATE.md](TEMPLATE.md) for detailed information about the template features, development workflows, and configuration.
+
+## Features
+
+- TODO: Add your project-specific features here
+
+## Getting Started
+
+### Prerequisites
+
+- Go 1.21 or later
+- Docker (optional, for container builds)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/{{REPO_OWNER}}/{{REPO_NAME}}.git
+cd {{REPO_NAME}}
+
+# Install dependencies
+go mod download
+
+# Build
+make build
+
+# Run tests
+make test
+```
+
+### Usage
+
+```bash
+# Run the application
+./bin/app
+
+# Or with go run
+go run .
+```
+
+TODO: Add more detailed usage instructions
+
+## Configuration
+
+TODO: Document any configuration options, environment variables, etc.
+
+## Development
+
+### Development Setup
+
+```bash
+# Set up development environment (installs pre-commit hooks, linting tools, etc.)
+make setup-dev
+```
+
+### Running Tests
+
+```bash
+# Run all tests
+make test
+
+# Run tests with coverage
+make test-coverage
+
+# Run linter
+make lint
+```
+
+### Pre-commit Hooks
+
+This project uses pre-commit hooks to ensure code quality. They run automatically before each commit.
+
+```bash
+# Run hooks manually
+make pre-commit-run
+```
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Run tests and linting (`make test lint`)
+5. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+See [TEMPLATE.md](TEMPLATE.md) for detailed contribution guidelines and development workflows.
+
+### Commit Convention
+
+We follow [Conventional Commits](https://www.conventionalcommits.org/):
+- `feat:` - New features
+- `fix:` - Bug fixes
+- `docs:` - Documentation changes
+- `chore:` - Maintenance tasks
+- `refactor:` - Code refactoring
+- `test:` - Test updates
+- `ci:` - CI/CD changes
+- `perf:` - Performance improvements
+
+## Deployment
+
+TODO: Add deployment instructions
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+For questions and support, please:
+- Open an issue in the [GitHub repository](https://github.com/{{REPO_OWNER}}/{{REPO_NAME}}/issues)
+- Contact the maintainers
+
+## Acknowledgments
+
+- Built with the [OpenCHAMI Go Microservice Template](https://github.com/OpenCHAMI/go-microservice-template)
+- TODO: Add any other acknowledgments

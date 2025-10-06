@@ -4,22 +4,20 @@ SPDX-FileCopyrightText: 2025 OpenCHAMI Contributors
 SPDX-License-Identifier: MIT
 -->
 
-# OpenCHAMI Go Microservice Template
+# OpenCHAMI Go Microservice Template - Documentation
 
-[![Build](https://github.com/alexlovelltroy/go-microservice-template/actions/workflows/build.yaml/badge.svg)](https://github.com/alexlovelltroy/go-microservice-template/actions/workflows/build.yaml)
-[![Test](https://github.com/alexlovelltroy/go-microservice-template/actions/workflows/test.yaml/badge.svg)](https://github.com/alexlovelltroy/go-microservice-template/actions/workflows/test.yaml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/alexlovelltroy/go-microservice-template)](https://goreportcard.com/report/github.com/alexlovelltroy/go-microservice-template)
-[![Go Reference](https://pkg.go.dev/badge/github.com/alexlovelltroy/go-microservice-template.svg)](https://pkg.go.dev/github.com/alexlovelltroy/go-microservice-template)
-[![GoDoc](https://godoc.org/github.com/alexlovelltroy/go-microservice-template?status.svg)](https://godoc.org/github.com/alexlovelltroy/go-microservice-template)
-[![License](https://img.shields.io/github/license/alexlovelltroy/go-microservice-template)](https://github.com/alexlovelltroy/go-microservice-template/blob/main/LICENSE)
-[![REUSE status](https://api.reuse.software/badge/github.com/alexlovelltroy/go-microservice-template)](https://api.reuse.software/info/github.com/alexlovelltroy/go-microservice-template)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/alexlovelltroy/go-microservice-template/badge)](https://securityscorecards.dev/viewer/?uri=github.com/alexlovelltroy/go-microservice-template)
-[![CodeQL](https://github.com/alexlovelltroy/go-microservice-template/actions/workflows/codeql.yaml/badge.svg)](https://github.com/alexlovelltroy/go-microservice-template/actions/workflows/codeql.yaml)
+[![Build](https://github.com/OpenCHAMI/go-microservice-template/actions/workflows/build.yaml/badge.svg)](https://github.com/OpenCHAMI/go-microservice-template/actions/workflows/build.yaml)
+[![Test](https://github.com/OpenCHAMI/go-microservice-template/actions/workflows/test.yaml/badge.svg)](https://github.com/OpenCHAMI/go-microservice-template/actions/workflows/test.yaml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/OpenCHAMI/go-microservice-template)](https://goreportcard.com/report/github.com/OpenCHAMI/go-microservice-template)
+[![License](https://img.shields.io/github/license/OpenCHAMI/go-microservice-template)](https://github.com/OpenCHAMI/go-microservice-template/blob/main/LICENSE)
+[![REUSE status](https://api.reuse.software/badge/github.com/OpenCHAMI/go-microservice-template)](https://api.reuse.software/info/github.com/OpenCHAMI/go-microservice-template)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/OpenCHAMI/go-microservice-template/badge)](https://securityscorecards.dev/viewer/?uri=github.com/OpenCHAMI/go-microservice-template)
 
-A template repository for creating new Go microservices in the OpenCHAMI project.
+> **This is the template documentation file.** It contains detailed information about all the features,
+> workflows, and tools included in this template. This file is preserved when you use the template setup script,
+> while the main README.md is replaced with a clean starter README for your new project.
 
-> **📚 Full Documentation:** See [TEMPLATE.md](TEMPLATE.md) for complete documentation about all template features,
-> development workflows, CI/CD setup, and detailed usage instructions.
+**Template repository for creating new Go microservices in the OpenCHAMI project.**
 
 ## Features
 
@@ -136,8 +134,10 @@ make setup-dev
 ├── Dockerfile                      # Container image definition
 ├── LICENSE                         # License file with REUSE headers
 ├── Makefile                        # Build automation
-├── README.md                       # This file
+├── README.md                       # Project README (replaced by setup script)
+├── README.template                 # Clean README template (used by setup script)
 ├── REUSE.toml                      # REUSE configuration for bulk licensing
+├── TEMPLATE.md                     # This file - Template documentation
 ├── go.mod                          # Go module definition
 ├── go.sum                          # Go module checksums
 └── main.go                         # Application entry point
