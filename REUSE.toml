@@ -1,0 +1,10 @@
+version = 1
+
+# This file is used to define copyright and licensing information for files
+# that cannot easily contain REUSE headers (e.g., generated files, binaries, etc.)
+
+# Example: License generated/compiled files
+# [[annotations]]
+# path = "dist/**"
+# SPDX-FileCopyrightText = "2025 OpenCHAMI Contributors"
+# SPDX-License-Identifier = "MIT"

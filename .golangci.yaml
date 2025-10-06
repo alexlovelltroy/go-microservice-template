@@ -1,0 +1,184 @@
+# SPDX-FileCopyrightText: 2025 OpenCHAMI Contributors
+#
+# SPDX-License-Identifier: MIT
+
+# golangci-lint configuration for OpenCHAMI projects
+# https://golangci-lint.run/docs/configuration/file/
+
+version: "2"
+
+run:
+  timeout: 5m
+  issues-exit-code: 1
+  tests: true
+  modules-download-mode: readonly
+  allow-parallel-runners: true
+
+output:
+  formats:
+    text:
+      print-linter-name: true
+      print-issued-lines: true
+  sort-order:
+    - linter
+    - severity
+    - file
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  settings:
+    gofmt:
+      simplify: true
+    goimports:
+      local-prefixes:
+        - github.com/OpenCHAMI
+  exclusions:
+    generated: lax
+    paths:
+      - ".*\\.pb\\.go$"
+      - ".*\\.gen\\.go$"
+
+linters:
+  enable:
+    # Default linters
+    - errcheck      # Check for unchecked errors
+    - gosimple      # Simplify code
+    - govet         # Vet examines Go source code
+    - ineffassign   # Detect ineffectual assignments
+    - staticcheck   # Static analysis
+    - unused        # Check for unused code
+    
+    # Additional recommended linters
+    - misspell      # Spell checker
+    - revive        # Fast, configurable, extensible, flexible, and beautiful linter
+    - unconvert     # Remove unnecessary type conversions
+    - unparam       # Check for unused function parameters
+    - gosec         # Security checker
+    - bodyclose     # Check HTTP response body closed
+    - noctx         # Check for http requests without context
+    - gocritic      # Comprehensive linter
+    - gocyclo       # Cyclomatic complexity
+    - goconst       # Find repeated strings that could be constants
+    - godot         # Check if comments end in a period
+    - errname       # Check error naming conventions
+    - errorlint     # Find code that will cause problems with Go 1.13+ error wrapping
+    - copyloopvar   # Check for pointers to enclosing loop variables (replaces exportloopref)
+    - goprintffuncname # Check printf-like function names
+    - importas      # Enforce consistent import aliases
+    - nakedret      # Find naked returns in functions > threshold
+    - nilerr        # Find code returning nil even if it checks err != nil
+    - nolintlint    # Reports ill-formed or insufficient nolint directives
+    - predeclared   # Find code that shadows predeclared identifiers
+    - stylecheck    # Replacement for golint
+    - thelper       # Detect test helpers without t.Helper()
+    - whitespace    # Detection of leading and trailing whitespace
+
+  disable:
+    - funlen        # Too strict for some cases
+    - gochecknoglobals # Globals are sometimes necessary
+    - gocognit      # Similar to gocyclo
+    - nestif        # Can be too strict
+    - wsl           # Too opinionated about whitespace
+
+  settings:
+    errcheck:
+      check-type-assertions: true
+      check-blank: true
+      exclude-functions:
+        - io/ioutil.ReadFile
+        - io.Copy(*bytes.Buffer)
+        - io.Copy(os.Stdout)
+
+    govet:
+      enable-all: true
+      disable:
+        - shadow
+        - fieldalignment
+
+    misspell:
+      locale: US
+
+    revive:
+      rules:
+        - name: exported
+          arguments:
+            - "checkPrivateReceivers"
+            - "sayRepetitiveInsteadOfStutters"
+
+    gosec:
+      excludes:
+        - G404  # Use of weak random number generator (math/rand instead of crypto/rand)
+      config:
+        global:
+          audit: enabled
+
+    gocritic:
+      enabled-tags:
+        - diagnostic
+        - experimental
+        - opinionated
+        - performance
+        - style
+      disabled-checks:
+        - dupImport
+        - ifElseChain
+        - octalLiteral
+        - whyNoLint
+        - wrapperFunc
+        - importShadow
+        - unnamedResult
+
+    gocyclo:
+      min-complexity: 15
+
+    goconst:
+      min-len: 3
+      min-occurrences: 3
+
+    nakedret:
+      max-func-lines: 30
+
+    nolintlint:
+      allow-unused: false
+      allow-no-explanation: []
+      require-explanation: true
+      require-specific: true
+
+  exclusions:
+    generated: lax
+    warn-unused: true
+    paths:
+      - ".*\\.pb\\.go$"
+      - ".*\\.gen\\.go$"
+    rules:
+      # Exclude some linters from running on tests files
+      - path: _test\.go
+        linters:
+          - gocyclo
+          - errcheck
+          - gosec
+          - goconst
+          - funlen
+          - gocritic
+
+      # Exclude some staticcheck messages
+      - linters:
+          - staticcheck
+        text: "SA9003:"
+
+      # Exclude lll issues for long lines with go:generate
+      - linters:
+          - lll
+        source: "^//go:generate "
+
+issues:
+  # Maximum issues count per one linter. Set to 0 to disable.
+  max-issues-per-linter: 0
+
+  # Maximum count of issues with the same text. Set to 0 to disable.
+  max-same-issues: 0
+
+  # Show only new issues created after git revision
+  new: false

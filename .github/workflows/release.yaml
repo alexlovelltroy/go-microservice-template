@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2025 OpenCHAMI Contributors
+#
+# SPDX-License-Identifier: MIT
+
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions: write-all
+
+jobs:
+  release:
+    uses: OpenCHAMI/github-actions/.github/workflows/go-build-release.yml@main
+    with:
+      go-version: stable
+      registry-name: ghcr.io/openchami/${{ github.event.repository.name }}
+      goreleaser-args: release --clean
