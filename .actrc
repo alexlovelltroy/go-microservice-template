@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2025 OpenCHAMI Contributors
+#
+# SPDX-License-Identifier: MIT
+
+# act configuration file
+# See: https://github.com/nektos/act
+
+# Use medium-sized container images (good balance between size and functionality)
+-P ubuntu-latest=catthehacker/ubuntu:act-latest
+
+# Set container architecture for Apple Silicon (M-series) Macs
+--container-architecture linux/amd64
+
+# Reuse containers between runs for faster execution
+--reuse
+
+# Bind the workspace directory (preserves state between runs)
+--bind
+
+# Use the GitHub API URL (can be customized for GitHub Enterprise)
+# --github-instance https://github.com

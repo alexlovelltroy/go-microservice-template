@@ -44,12 +44,11 @@ linters:
   enable:
     # Default linters
     - errcheck      # Check for unchecked errors
-    - gosimple      # Simplify code
     - govet         # Vet examines Go source code
     - ineffassign   # Detect ineffectual assignments
-    - staticcheck   # Static analysis
+    - staticcheck   # Static analysis (includes gosimple checks in v2.x)
     - unused        # Check for unused code
-    
+
     # Additional recommended linters
     - misspell      # Spell checker
     - revive        # Fast, configurable, extensible, flexible, and beautiful linter
@@ -71,7 +70,6 @@ linters:
     - nilerr        # Find code returning nil even if it checks err != nil
     - nolintlint    # Reports ill-formed or insufficient nolint directives
     - predeclared   # Find code that shadows predeclared identifiers
-    - stylecheck    # Replacement for golint
     - thelper       # Detect test helpers without t.Helper()
     - whitespace    # Detection of leading and trailing whitespace
 

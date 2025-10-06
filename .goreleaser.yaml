@@ -130,5 +130,5 @@ release:
   mode: append
   header: |
     ## Release {{ .Tag }} ({{ .Date }})
-    
+
     Welcome to this new release!

@@ -103,6 +103,8 @@ make setup-dev
 │   └── CODEOWNERS                  # Code ownership definitions
 ├── LICENSES/
 │   └── MIT.txt                     # MIT License text
+├── docs/
+│   └── TESTING-WORKFLOWS.md        # Guide for testing workflows locally
 ├── .gitignore                      # Git ignore patterns
 ├── .golangci.yaml                  # golangci-lint configuration
 ├── .goreleaser.yaml                # GoReleaser configuration
@@ -185,6 +187,29 @@ make pre-commit-update
 git commit --no-verify -m "message"
 ```
 
+### Testing GitHub Actions Workflows Locally
+
+You can test GitHub Actions workflows locally using **act** before pushing to GitHub:
+
+```bash
+# Install act (one-time)
+make act-install
+
+# List available workflows
+make act-list
+
+# Test specific workflows
+make act-build      # Test build workflow
+make act-test       # Run tests locally
+make act-lint       # Test linting
+make act-reuse      # Test REUSE compliance
+
+# Run all testable workflows
+make act-all
+```
+
+**See [docs/TESTING-WORKFLOWS.md](docs/TESTING-WORKFLOWS.md) for detailed guide.**
+
 ### Building with GoReleaser
 
 ```bash
@@ -236,6 +261,7 @@ Run `make help` to see all available targets. Key targets include:
 - `make pre-commit-setup` - Install pre-commit hooks
 - `make reuse-install` - Install REUSE tool
 - `make reuse-annotate` - Add REUSE headers to all files (interactive)
+- `make act-install` - Install act for local workflow testing
 
 **Building & Testing:**
 - `make build` - Build the application
@@ -251,6 +277,15 @@ Run `make help` to see all available targets. Key targets include:
 - `make reuse-spdx` - Generate SPDX bill of materials
 - `make vuln` - Check for vulnerabilities
 - `make vet` - Run go vet
+
+**Local Workflow Testing:**
+- `make act-list` - List all GitHub Actions workflows
+- `make act-build` - Test build workflow locally
+- `make act-test` - Test test workflow locally
+- `make act-lint` - Test linting workflow locally
+- `make act-reuse` - Test REUSE workflow locally
+- `make act-vuln` - Test vulnerability check locally
+- `make act-all` - Run all testable workflows
 
 **Docker:**
 - `make docker-build` - Build Docker image

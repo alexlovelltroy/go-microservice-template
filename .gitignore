@@ -45,3 +45,7 @@ temp/
 
 # GoReleaser
 dist/
+
+# act (GitHub Actions local testing)
+.secrets
+*.secrets

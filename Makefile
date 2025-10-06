@@ -76,6 +76,7 @@ reuse-install: ## Install REUSE tool
 reuse-annotate: ## Add REUSE headers to all files in the repository
 	@echo "Annotating files with REUSE headers..."
 	@echo "This will add SPDX headers to files that don't have them yet."
+# REUSE-IgnoreStart
 	@read -p "Copyright holder [OpenCHAMI Contributors]: " holder; \
 	holder=$${holder:-OpenCHAMI Contributors}; \
 	read -p "License [MIT]: " license; \
@@ -85,6 +86,7 @@ reuse-annotate: ## Add REUSE headers to all files in the repository
 	echo "Annotating with: SPDX-FileCopyrightText: $$year $$holder"; \
 	echo "                 SPDX-License-Identifier: $$license"; \
 	reuse annotate --copyright="$$holder" --license="$$license" --year="$$year" --skip-existing --recursive .
+# REUSE-IgnoreEnd
 
 reuse-download-license: ## Download a license file (usage: make reuse-download-license LICENSE=MIT)
 	@if [ -z "$(LICENSE)" ]; then \
@@ -117,6 +119,55 @@ setup-dev: reuse-install pre-commit-install pre-commit-setup ## Set up developme
 	@echo "  1. Run 'make reuse-annotate' to add REUSE headers to all files"
 	@echo "  2. Run 'make pre-commit-run' to test pre-commit hooks"
 	@echo "  3. Start coding! Pre-commit hooks will run automatically on git commit"
+	@echo ""
+	@echo "Optional: Install 'act' to test GitHub Actions locally:"
+	@echo "  brew install act"
+	@echo "  make act-list  # List available workflows"
+
+act-install: ## Install act (GitHub Actions local runner) via Homebrew
+	@command -v brew >/dev/null 2>&1 || { echo "Homebrew is required. Install from https://brew.sh"; exit 1; }
+	brew install act
+	@echo "act installed successfully"
+
+act-list: ## List all GitHub Actions workflows
+	@command -v act >/dev/null 2>&1 || { echo "act is not installed. Run 'make act-install' first."; exit 1; }
+	@echo "Available workflows:"
+	@ls -1 .github/workflows/*.yaml | sed 's/.*\//  - /'
+
+act-test: ## Run GitHub Actions test workflow locally (ubuntu only, stable Go)
+	@command -v act >/dev/null 2>&1 || { echo "act is not installed. Run 'make act-install' first."; exit 1; }
+	@echo "Note: Testing with ubuntu-latest and stable Go version only (full matrix runs on GitHub)"
+	act push -W .github/workflows/test.yaml --container-architecture linux/amd64 --matrix os:ubuntu-latest --matrix go-version:stable
+
+act-build: ## Run GitHub Actions build workflow locally
+	@command -v act >/dev/null 2>&1 || { echo "act is not installed. Run 'make act-install' first."; exit 1; }
+	act push -W .github/workflows/build.yaml --container-architecture linux/amd64
+
+act-lint: ## Run GitHub Actions golangci-lint workflow locally
+	@command -v act >/dev/null 2>&1 || { echo "act is not installed. Run 'make act-install' first."; exit 1; }
+	act push -W .github/workflows/golangci-lint.yaml --container-architecture linux/amd64
+
+act-reuse: ## Run GitHub Actions REUSE workflow locally
+	@command -v act >/dev/null 2>&1 || { echo "act is not installed. Run 'make act-install' first."; exit 1; }
+	act push -W .github/workflows/reuse.yaml --container-architecture linux/amd64
+
+act-vuln: ## Run GitHub Actions vulnerability check workflow locally
+	@command -v act >/dev/null 2>&1 || { echo "act is not installed. Run 'make act-install' first."; exit 1; }
+	act push -W .github/workflows/govulncheck.yaml --container-architecture linux/amd64
+
+act-all: ## Run all testable workflows locally (build, test, lint, reuse, vuln)
+	@command -v act >/dev/null 2>&1 || { echo "act is not installed. Run 'make act-install' first."; exit 1; }
+	@echo "Running all testable workflows..."
+	@echo "\n=== Build Workflow ==="
+	@act -W .github/workflows/build.yaml || true
+	@echo "\n=== Test Workflow ==="
+	@act -W .github/workflows/test.yaml || true
+	@echo "\n=== Lint Workflow ==="
+	@act -W .github/workflows/golangci-lint.yaml || true
+	@echo "\n=== REUSE Workflow ==="
+	@act -W .github/workflows/reuse.yaml || true
+	@echo "\n=== Vulnerability Check Workflow ==="
+	@act -W .github/workflows/govulncheck.yaml || true
 
 all: clean install lint test build ## Run all checks and build
 
