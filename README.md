@@ -6,11 +6,15 @@ SPDX-License-Identifier: MIT
 
 # OpenCHAMI Go Microservice Template
 
+[![Build](https://github.com/alexlovelltroy/go-microservice-template/actions/workflows/build.yaml/badge.svg)](https://github.com/alexlovelltroy/go-microservice-template/actions/workflows/build.yaml)
+[![Test](https://github.com/alexlovelltroy/go-microservice-template/actions/workflows/test.yaml/badge.svg)](https://github.com/alexlovelltroy/go-microservice-template/actions/workflows/test.yaml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/alexlovelltroy/go-microservice-template)](https://goreportcard.com/report/github.com/alexlovelltroy/go-microservice-template)
+[![Go Reference](https://pkg.go.dev/badge/github.com/alexlovelltroy/go-microservice-template.svg)](https://pkg.go.dev/github.com/alexlovelltroy/go-microservice-template)
+[![GoDoc](https://godoc.org/github.com/alexlovelltroy/go-microservice-template?status.svg)](https://godoc.org/github.com/alexlovelltroy/go-microservice-template)
+[![License](https://img.shields.io/github/license/alexlovelltroy/go-microservice-template)](https://github.com/alexlovelltroy/go-microservice-template/blob/main/LICENSE)
 [![REUSE status](https://api.reuse.software/badge/github.com/alexlovelltroy/go-microservice-template)](https://api.reuse.software/info/github.com/alexlovelltroy/go-microservice-template)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/alexlovelltroy/go-microservice-template/badge)](https://securityscorecards.dev/viewer/?uri=github.com/alexlovelltroy/go-microservice-template)
-[![GoDoc](https://godoc.org/github.com/alexlovelltroy/go-microservice-template?status.svg)](https://godoc.org/github.com/alexlovelltroy/go-microservice-template)
-[![License](https://img.shields.io/github/license/alexlovelltroy/go-microservice-template)](https://github.com/alexlovelltroy/go-microservice-template/blob/main/LICENSES/MIT.txt)
+[![CodeQL](https://github.com/alexlovelltroy/go-microservice-template/actions/workflows/codeql.yaml/badge.svg)](https://github.com/alexlovelltroy/go-microservice-template/actions/workflows/codeql.yaml)
 
 A template repository for creating new Go microservices in the OpenCHAMI project.
 
