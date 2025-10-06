@@ -6,11 +6,11 @@ SPDX-License-Identifier: MIT
 
 # OpenCHAMI Go Microservice Template
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/OpenCHAMI/go-microservice-template)](https://goreportcard.com/report/github.com/OpenCHAMI/go-microservice-template)
-[![REUSE status](https://api.reuse.software/badge/github.com/OpenCHAMI/go-microservice-template)](https://api.reuse.software/info/github.com/OpenCHAMI/go-microservice-template)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/OpenCHAMI/go-microservice-template/badge)](https://securityscorecards.dev/viewer/?uri=github.com/OpenCHAMI/go-microservice-template)
-[![GoDoc](https://godoc.org/github.com/OpenCHAMI/go-microservice-template?status.svg)](https://godoc.org/github.com/OpenCHAMI/go-microservice-template)
-[![License](https://img.shields.io/github/license/OpenCHAMI/go-microservice-template)](https://github.com/OpenCHAMI/go-microservice-template/blob/main/LICENSES/MIT.txt)
+[![Go Report Card](https://goreportcard.com/badge/github.com/alexlovelltroy/go-microservice-template)](https://goreportcard.com/report/github.com/alexlovelltroy/go-microservice-template)
+[![REUSE status](https://api.reuse.software/badge/github.com/alexlovelltroy/go-microservice-template)](https://api.reuse.software/info/github.com/alexlovelltroy/go-microservice-template)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/alexlovelltroy/go-microservice-template/badge)](https://securityscorecards.dev/viewer/?uri=github.com/alexlovelltroy/go-microservice-template)
+[![GoDoc](https://godoc.org/github.com/alexlovelltroy/go-microservice-template?status.svg)](https://godoc.org/github.com/alexlovelltroy/go-microservice-template)
+[![License](https://img.shields.io/github/license/alexlovelltroy/go-microservice-template)](https://github.com/alexlovelltroy/go-microservice-template/blob/main/LICENSES/MIT.txt)
 
 A template repository for creating new Go microservices in the OpenCHAMI project.
 
