@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: MIT
 
 # Build stage
-FROM golang:1.22-alpine AS builder
+FROM golang:1.25-alpine AS builder
 
 # Install build dependencies and update packages
 RUN apk update && apk upgrade && apk add --no-cache git ca-certificates
